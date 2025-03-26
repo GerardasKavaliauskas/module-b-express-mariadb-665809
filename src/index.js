@@ -4,14 +4,15 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3307;
 
 // Database connection pool
 const db = mysql.createPool({
-    host: process.env.DB_HOST || 'db',
+    host: process.env.DB_HOST || '172.17.51.94',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || 'password',
     database: process.env.DB_NAME || 'competition',
+    port : process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
